@@ -26,3 +26,9 @@ Note - maybe add environment secrets, currently just usind default username and 
 3. enter psql: `docker exec -it service_requests_db psql -U app_user -d service_requests`
 4. interact with DB (e.g. `SELECT * FROM customers;`, `SELECT * FROM service_requests;`)
 5. exit: `\q`
+
+
+
+## Extra Notes:
+
+.env not hidden for exercise. In production variables would be managed via secrets.
