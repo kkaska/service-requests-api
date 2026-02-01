@@ -27,8 +27,17 @@ Note - maybe add environment secrets, currently just usind default username and 
 4. interact with DB (e.g. `SELECT * FROM customers;`, `SELECT * FROM service_requests;`)
 5. exit: `\q`
 
+# Task 2: Containerised API
 
+currently supports get request
 
 ## Extra Notes:
 
 .env not hidden for exercise. In production variables would be managed via secrets.
+
+
+run api locally: `uvicorn app.main:app --reload`
+two minor issues to fix later:
+missing endpoints cause non breaking errors when running locally
+127.0.0.1:61310 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61310 - "GET /favicon.ico HTTP/1.1" 404 Not Found
