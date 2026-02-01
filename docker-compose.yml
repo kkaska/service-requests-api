@@ -1,0 +1,12 @@
+services:
+  db:
+    image: postgres:16
+    container_name: service_requests_db
+    environment:
+      POSTGRES_USER: app_user
+      POSTGRES_PASSWORD: app_password
+      POSTGRES_DB: service_requests
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"

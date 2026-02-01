@@ -14,3 +14,15 @@ Create a containerized API that returns specific service requests from the datab
 No specific SQL engine is expected, however please base your decision on what data you are planning to store in the database, and be prepared to explain why you made that decision.
 Locally configured database is sufficient, we are not expecting you to deploy anything in the cloud.
 Minimal read-only is sufficient, but please feel free to expand the capability.
+
+
+
+# Task 1: containerised postgreSQL db with minimal relational tables.
+PostgreSQL database deployed locally via Docker Compose with basic relational schema and seed data impelemented on runtime.
+Note - maybe add environment secrets, currently just usind default username and password for testing.
+## DB Setup:
+1. run docker compose script: `docker compose up -d`
+2. confirm running: `docker ps`
+3. enter psql: `docker exec -it service_requests_db psql -U app_user -d service_requests`
+4. interact with DB (e.g. `SELECT * FROM customers;`, `SELECT * FROM service_requests;`)
+5. exit: `\q`
