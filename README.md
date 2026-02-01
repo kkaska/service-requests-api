@@ -31,6 +31,12 @@ Note - maybe add environment secrets, currently just usind default username and 
 
 currently supports get request
 
+
+# Running the Application
+
+```bash
+docker compose up --build
+
 ## Extra Notes:
 
 .env not hidden for exercise. In production variables would be managed via secrets.
