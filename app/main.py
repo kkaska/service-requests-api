@@ -6,11 +6,13 @@ from app.models import ServiceRequest
 
 app = FastAPI(title="Service Requests API")
 
+@app.get("/")
+def root():
+    return {"message": "Service Requests API"}
 
 @app.get("/health")
 def health_check():
     return {"status": "ok"}
-
 
 @app.get("/service-requests/{request_id}")
 def get_service_request(request_id: int):
