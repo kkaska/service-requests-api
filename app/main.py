@@ -46,3 +46,38 @@ def get_service_request(request_id: int):
         return dict(result)
     finally:
         db.close()
+
+@app.get("/service-requests")
+def list_service_requests():
+    db = SessionLocal()
+    try:
+        results = db.execute(
+            text("""
+                SELECT
+                    sr.id,
+                    sr.description,
+                    sr.status,
+                    sr.created_at,
+                    c.first_name,
+                    c.last_name
+                FROM service_requests sr
+                JOIN customers c ON sr.customer_id = c.id
+                ORDER BY sr.created_at DESC
+            """)
+        ).mappings().all()
+
+        return {
+            "count": len(results),
+            "items": [
+                {
+                    "id": row["id"],
+                    "description": row["description"],
+                    "status": row["status"],
+                    "created_at": row["created_at"],
+                    "customer_name": f'{row["first_name"]} {row["last_name"]}',
+                }
+                for row in results
+            ],
+        }
+    finally:
+        db.close()

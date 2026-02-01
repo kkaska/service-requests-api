@@ -25,7 +25,9 @@ run api locally:
 Run the containerised application: 
 `docker compose up --build`
 Call endpoints:
-`curl http://localhost:8000/health` 
-`curl http://localhost:8000/service-requests/1`
+- `curl http://localhost:8000/health` 
+- `curl http://localhost:8000/service-requests/1`
+- `curl http://localhost:8000/service-requests` – returns a summary list of service requests
+
 Shut down containers:
 `docker compose down -v`
