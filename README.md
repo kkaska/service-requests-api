@@ -27,3 +27,5 @@ Run the containerised application:
 Call endpoints:
 `curl http://localhost:8000/health` 
 `curl http://localhost:8000/service-requests/1`
+Shut down containers:
+`docker compose down -v`
